@@ -2,7 +2,7 @@ const { Pool } = require("pg");
 
 const pool = new Pool({
     host: 'localhost',
-    user: 'shuvo',
+    user: 'postgres',
     port: 5432,
     database: 'bookDB',
     idleTimeoutMillis: 30000,
