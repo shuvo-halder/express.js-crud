@@ -1,9 +1,10 @@
 const express = require('express');
 const { v4 : uuidv4 } = require('uuid');
 
-const pool = require('./db');
 const app = express();
 const PORT = 3001;
+const pool = require('./db');
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
@@ -36,7 +37,10 @@ app.post("/books", async (req,res) => {
   try {
     const {name, description} = req.body;
     const id = uuidv4();
-    res.status(201).json({message: `books id: ${id} created ${name}, ${description}`})
+    // insert database
+    const newBook = await pool.query("INSERT INTO book(id, name, description) VALUES ($1, $2, $3) RETURNING *",[id, name, description]);
+
+    res.status(201).json({message: `books id: ${id} created `, data: newBook});
   } catch (error) {
     res.json({error: error.message})
   }
