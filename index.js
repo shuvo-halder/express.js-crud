@@ -44,8 +44,7 @@ app.post("/books", async (req,res) => {
 app.delete("/books/:id", async (req,res) => {
   try {
     const {id} = req.params;
-
-    res.status(200).json({message: `specific books id return id: ${id} `})
+    res.status(200).json({message: `delete id : ${id} `})
   } catch (error) {
     res.json({error: error.message})
   }
