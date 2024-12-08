@@ -4,7 +4,7 @@ const pool = new Pool({
     host: 'localhost',
     user: 'postgres',
     port: 5432,
-    database: 'bookDB',
+    database: 'bookexpress',
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,
 })
