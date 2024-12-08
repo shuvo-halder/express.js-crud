@@ -1,6 +1,7 @@
 const express = require('express');
-import { v4 as uuidv4 } from 'uuid';
+const { v4 : uuidv4 } = require('uuid');
 
+const pool = require('./db');
 const app = express();
 const PORT = 3001;
 app.use(express.json());
@@ -35,7 +36,7 @@ app.post("/books", async (req,res) => {
   try {
     const {name, description} = req.body;
     const id = uuidv4();
-    res.status(201).json({message: `books was created ${name}, ${description}`})
+    res.status(201).json({message: `books id: ${id} created ${name}, ${description}`})
   } catch (error) {
     res.json({error: error.message})
   }
