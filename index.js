@@ -39,9 +39,9 @@ app.post("/books", async (req,res) => {
   }
 })
 
-// update route and function
+// delete route and function
 
-app.get("/books/:id", async (req,res) => {
+app.delete("/books/:id", async (req,res) => {
   try {
     const {id} = req.params;
 
