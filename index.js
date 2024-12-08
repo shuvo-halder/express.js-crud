@@ -38,3 +38,15 @@ app.post("/books", async (req,res) => {
     res.json({error: error.message})
   }
 })
+
+// update route and function
+
+app.get("/books/:id", async (req,res) => {
+  try {
+    const {id} = req.params;
+
+    res.status(200).json({message: `specific books id return id: ${id} `})
+  } catch (error) {
+    res.json({error: error.message})
+  }
+})
