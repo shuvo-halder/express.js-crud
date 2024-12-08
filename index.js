@@ -51,10 +51,11 @@ app.delete("/books/:id", async (req,res) => {
 
 // route update
 
-app.put("/books", async (req,res) => {
+app.put("/books/:id", async (req,res) => {
   try {
+    const {id} = req.params;
     const {name, description} = req.body;
-    res.status(201).json({message: `books was created ${name}, ${description}`})
+    res.status(200).json({message: `books was ${id} udapte ${name}, ${description}`})
   } catch (error) {
     res.json({error: error.message})
   }
